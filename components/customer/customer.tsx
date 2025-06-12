@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -15,7 +14,6 @@ export const Customer: React.FC = () => {
   return (
     <div className="w-full overflow-x-auto">
       <Table>
-        <TableCaption>A list of your recent customers.</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead>Name</TableHead>
@@ -28,16 +26,10 @@ export const Customer: React.FC = () => {
           {customerData.map((customer: ICustomers) => (
             <TableRow key={customer.id}>
               <TableCell className="font-medium">{customer.client}</TableCell>
-              <TableCell>{customer.email}</TableCell>
-              <TableCell>{customer.date}</TableCell>
+              <TableCell className="text-cyanColor">{customer.email}</TableCell>
+              <TableCell className="text-cyanColor">{customer.date}</TableCell>
               <TableCell>
-                <span
-                  className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
-                    customer.status === 'Active'
-                      ? 'bg-green-100 text-green-800'
-                      : 'bg-gray-100 text-gray-800'
-                  }`}
-                >
+                <span className="inline-flex min-w-20 items-center rounded-full bg-greyColorTwo px-12 py-[5.5px] text-sm font-medium">
                   {customer.status}
                 </span>
               </TableCell>
